@@ -1,8 +1,17 @@
 <h1>Bubble sort visualizer</h1>
 
-<p>What we want is to visualize bubble sort algorithm in time using Java FX library for GUI</p>
+<p>What we want is to visualize bubble sort algorithm in time using Java FX library for GUI, but first let's see what is bubble sort algorithm</p>
 
-<p>All functionalities that we will have are:</p>
+<p>The bubble sort algorithm is an array sorting algorithm. We are always comparing two elements that are next to each other and if necessary, we change their places.
+If we want to sort array ascending the condition for changing places of elements will be that the second one is smaller than the first one. So we will go through whole array and do this to every pair of elements. That will be the end of first iteration and the important thing is that after this we will have one element on its final position in array, and it will be on the end of that array. If we are sorting our array ascending that element will be the biggest element. So we don't want to compare later that element with anything. After second iteration through array we will have another element on its final position. When we have all elements on their final positions the algorithm is finished.</p>
+
+The simple code for bubble sort is on next image:
+
+![image](https://user-images.githubusercontent.com/53167193/170382190-ff180a15-8a83-48fc-80d1-dd3b84cbbfa5.png)
+
+<p>Now back to our task</p>
+
+<p>All functionalities that we will have are: </p>
 
 <ul>
   <li><b>play button</b> that will start timer</li>
@@ -36,7 +45,25 @@
 
 ![image](https://user-images.githubusercontent.com/53167193/170163641-e3d7fca3-fbfb-46c7-9151-ea22c4448f13.png)
 
-<p>History list will be filled each time the array state is changed</p>
+<p>History list will be filled each time the array state is changed, if we are comparing elements or if we exchange them</p>
+
+<p>That list will also has first state of array and that's initial state. The last element of list will be sorted array. So status of array in history list can be: INITIAL, COMPARED, EXCHANGED or SORTED. Items in list will also have information how many elements in array are currently on their final positions. </p>
+
+<p>So item in history list for example can be: </p>
+
+![image](https://user-images.githubusercontent.com/53167193/170387128-aafaecce-c41f-4d3c-949e-d56e80de9264.png)
+
+or 
+
+![image](https://user-images.githubusercontent.com/53167193/170387169-c6326691-bace-471d-8d06-e24f1d33ac9d.png)
+
+or
+
+![image](https://user-images.githubusercontent.com/53167193/170387189-7954290b-cf40-46e9-a5aa-5c2c3fc44ccb.png)
+
+or
+
+![image](https://user-images.githubusercontent.com/53167193/170387220-7d9e5884-2a3b-4b74-9efb-959a77d8baa9.png)
 
 
 
