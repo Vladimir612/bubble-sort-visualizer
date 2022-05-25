@@ -45,7 +45,7 @@ The simple code for bubble sort is on next image:
 
 ![image](https://user-images.githubusercontent.com/53167193/170163641-e3d7fca3-fbfb-46c7-9151-ea22c4448f13.png)
 
-<p>History list will be filled each time the array state is changed, if we are comparing elements or if we exchange them</p>
+<p>History list will be filled each time when array state has changed, if we are comparing elements or if we exchange them</p>
 
 <p>That list will also has first state of array and that's initial state. The last element of list will be sorted array. So status of array in history list can be: INITIAL, COMPARED, EXCHANGED or SORTED. Items in list will also have information how many elements in array are currently on their final positions. </p>
 
