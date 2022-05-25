@@ -29,7 +29,7 @@ The simple code for bubble sort is on next image:
 
 <ul>
   <li>when we compare two elements</li>
-  <li>when we swap places to those elements</li>
+  <li>when we exchange places to those elements</li>
   <li>when element is on its final position</li>
 </ul>
 
@@ -37,7 +37,7 @@ The simple code for bubble sort is on next image:
 
 ![image](https://user-images.githubusercontent.com/53167193/170163013-d72e68f5-1d2d-472a-97e3-6a3b5e8628d6.png)
 
-<h3>Swapping places</h3>
+<h3>Exchanging places</h3>
 
 ![image](https://user-images.githubusercontent.com/53167193/170163087-1dd54d6c-68f3-4c03-8f4d-f67d55f749e1.png)
 
