@@ -65,13 +65,28 @@ or
 
 ![image](https://user-images.githubusercontent.com/53167193/170387220-7d9e5884-2a3b-4b74-9efb-959a77d8baa9.png)
 
+<p>Now when we know what are the tasks, we can continue to logic that we want to implement</p>
 
+<p>What we must understand in this logic is that we have multiple things on screen that all dictate to array how to be displayed, therefore, before dividing this program into small parts, we must notice the connection between the functionalities. Things that affect diplayed array are: </p>
 
+<ul>
+  <li>timer (After every second by default array will change its state, to control timer we use start/stop button and slider to change sorting speed)</li>
+  <li>next iteration button (Every time we click on it the array will also change its state)</li>
+  <li>When we click on item inside of history list, we want to display the array as it was at that moment</li>
+  <li>History list also change every time at the same moment as array</li>
+</ul>
 
+<p>Knowing all these informations and most important of all of them that at each moment of program we know exactly how state of array was earlier, we have to store that data inside some list</p>
 
+<p>To manage that history list update and the update of displayed array are happening at the same time we will use that one of these functiones trigger the other one</p>
 
+<p>How to choose which function should trigger the other one:</p>
 
+<p>If we choose that displayArray function trigger addHistoryItem function what will happen?</p>
 
+Timer will run. updateDisplayedArray function will be called on each second and that's okay, but when we click on item in history list that will call updateDisplayedArray function and that will call addHistoryItem and that will call again updateDisplayedArray. We don't want that.
+
+We want that addNextHistoryItem triggers updateDisplayedArray and then there is no problem.
 
 
 
