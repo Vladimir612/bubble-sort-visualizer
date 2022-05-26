@@ -3,7 +3,7 @@
 <p>What we want is to visualize bubble sort algorithm in time using Java FX library for GUI, but first let's see what is bubble sort algorithm</p>
 
 <p>The bubble sort algorithm is an array sorting algorithm. We are always comparing two elements that are next to each other and if necessary, we change their places.
-If we want to sort array ascending the condition for changing places of elements will be that the second one is smaller than the first one. So we will go through whole array and do this to every pair of elements. That will be the end of first iteration and the important thing is that after this we will have one element on its final position in array, and it will be on the end of that array. So we don't want to compare later that element with anything. If we are sorting our array ascending that element will be the biggest element. After second iteration through array we will have another element on its final position. When we have all elements on their final positions the algorithm is finished.</p>
+If we want to sort array ascending, the condition for changing places of elements will be that the second one is smaller than the first one. So we will go through whole array and do this to every pair of elements. That will be the end of first iteration and the important thing is that after this we will have one element on its final position in array, and it will be on the end of that array. So we don't want to compare later that element with anything. If we are sorting our array ascending, that element will be the biggest element. After second iteration through array we will have another element on its final position. When we have all elements on their final positions the algorithm is finished.</p>
 
 The simple code for bubble sort is on next image:
 
@@ -28,9 +28,9 @@ The simple code for bubble sort is on next image:
 <p>In array that will change in time we want to display:</p>
 
 <ul>
-  <li>when we compare two elements</li>
-  <li>when we exchange places to those elements</li>
-  <li>when element is on its final position</li>
+  <li>when we compare two elements (elements are yellow)</li>
+  <li>when we exchange places to those elements (elements are blue)</li>
+  <li>when element is on its final position (element is green)</li>
 </ul>
 
 <h3>Comparing two elements</h3>
@@ -47,7 +47,7 @@ The simple code for bubble sort is on next image:
 
 <p>History list will be filled each time when array state has changed, if we are comparing elements or if we exchange them</p>
 
-<p>That list will also has first state of array and that's initial state. The last element of list will be sorted array. So status of array in history list can be: INITIAL, COMPARED, EXCHANGED or SORTED. Items in list will also have information how many elements in array are currently on their final positions. </p>
+<p>That list will also have first state of array and that's initial state. The last element of the list will be sorted array. So status of an array in history list can be: INITIAL, COMPARED, EXCHANGED or SORTED. Items in list will also have information about how many elements in an array are currently on their final position.</p>
 
 <p>So item in history list for example can be: </p>
 
