@@ -268,3 +268,6 @@ We take the index of an element from list because it's the same as the index of 
 function updateDisplayedArray.
 
 That's it, we finished our task.
+
+![image](https://user-images.githubusercontent.com/53167193/170781892-b149fc65-e821-4b09-a603-8b94ed6fbf21.png)
+
