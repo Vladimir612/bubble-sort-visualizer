@@ -16,7 +16,7 @@ public class HelperFunctions {
     public static void bubbleSort(ArrayElement[] passedArray, ArrayList<ArrayState> statesOfArray){
         int n = passedArray.length;
 
-        ArrayElement[] initArray = new ArrayElement[passedArray.length];
+       ArrayElement[] initArray = new ArrayElement[passedArray.length];
         for (int k = 0; k < passedArray.length; k++) {
             initArray[k] = new ArrayElement(passedArray[k].getNumber(), ElementStatus.DEFAULT);
         }
@@ -31,7 +31,7 @@ public class HelperFunctions {
                     comparedArr[k] = new ArrayElement(passedArray[k].getNumber(), ElementStatus.DEFAULT);
                     if(k == j || k == j + 1){
                         comparedArr[k].setCurrentStatus(ElementStatus.COMPARED);
-                    }if(k >= n-i){
+                    }if(k > n - i - 1){
                         comparedArr[k].setCurrentStatus(ElementStatus.FINAL);
                     }
                 }
@@ -39,6 +39,7 @@ public class HelperFunctions {
                 ArrayState comparedArrayState = new ArrayState(comparedArr, ArrayStatus.COMPARED, i);
                 statesOfArray.add(comparedArrayState);
 
+                //Adding exchanged array to statesOfArray
                 if (passedArray[j].getNumber() > passedArray[j + 1].getNumber()) {
                     ArrayElement temp = passedArray[j];
                     passedArray[j] = passedArray[j + 1];
@@ -88,12 +89,11 @@ public class HelperFunctions {
             }
         }
         else{
-            tileArray.getChildren().clear();
             System.out.println("No elements to display!");
         }
     }
 
-    public static ArrayState generateRandomArr(){
+    public static int[] generateRandomArr(){
         //Generating random array
         Random rdm = new Random();
         int length = 99;
@@ -102,13 +102,7 @@ public class HelperFunctions {
             array[i] = rdm.nextInt(100);
         }
 
-        ArrayElement[] helpArr = new ArrayElement[array.length];
-        for (int i = 0; i < array.length; i++) {
-            ArrayElement element = new ArrayElement(array[i], ElementStatus.DEFAULT);
-            helpArr[i] = element;
-        }
-
-        return new ArrayState(helpArr, ArrayStatus.INITIAL, 0);
+       return array;
     }
 
     public static ArrayState generateArr(int[] array){

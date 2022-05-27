@@ -27,14 +27,14 @@ public class BubbleSortApplication extends Application implements EventHandler<A
     Stage window;
     Scene scene;
     Button play, stop, next;
-    TilePane tileArray;
-    VBox mainLayout, historyLayout;
     HBox buttonGroup;
+    TilePane tileArray;
     BorderPane borderPane;
+    VBox mainLayout, historyLayout;
     Slider slider = new Slider();
     ScrollPane sp = new ScrollPane();
-
     ListView<String> historyListView;
+
     ObservableList<String> history;
 
     //array of all states
@@ -59,17 +59,6 @@ public class BubbleSortApplication extends Application implements EventHandler<A
         tileArray.setPrefColumns(15);
         tileArray.setPadding(new Insets(5));
 
-        play = new Button("Play");
-        play.setOnAction(this);
-
-        stop = new Button("Stop");
-        stop.setOnAction(this);
-
-        next = new Button("Next iteration");
-        next.setOnAction(this);
-
-        buttonGroup.getChildren().addAll(play, stop, next);
-
         slider.setMin(10);
         slider.setMax(3000);
         slider.setValue(1000);
@@ -80,6 +69,16 @@ public class BubbleSortApplication extends Application implements EventHandler<A
         slider.setBlockIncrement(100);
         slider.setMaxWidth(300);
 
+        play = new Button("Play");
+        play.setOnAction(this);
+
+        stop = new Button("Stop");
+        stop.setOnAction(this);
+
+        next = new Button("Next iteration");
+        next.setOnAction(this);
+
+        buttonGroup.getChildren().addAll(play, stop, next);
         mainLayout.setPadding(new Insets(30, 20, 10, 20));
         mainLayout.getChildren().addAll(tileArray, slider, buttonGroup);
         sp.setContent(mainLayout);
@@ -123,9 +122,24 @@ public class BubbleSortApplication extends Application implements EventHandler<A
                     return;
                 }
                 updateDisplayedArray(statesOfArray.get(index).getArray(), tileArray);
-                System.out.println("clicked on " + historyListView.getSelectionModel().getSelectedIndex());
             }
         });
+
+        List<String> args = getParameters().getRaw();
+
+        if(!args.isEmpty()){
+            int[] intArr = Arrays.stream(args.toArray()).map(Object::toString).mapToInt(Integer::parseInt).toArray();
+            arrayState = generateArr(intArr);
+        }else{
+            int[] randArr = generateRandomArr();
+            arrayState = generateArr(randArr);
+        }
+
+        //initially displaying random array
+        updateDisplayedArray(arrayState.getArray(), tileArray);
+
+        //this bubble sort will make us every step that should be made later
+        bubbleSort(arrayState.getArray(), statesOfArray);
 
         //JavaFX thread, we are adding next history item, that will trigger changing displayed array
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
@@ -134,20 +148,6 @@ public class BubbleSortApplication extends Application implements EventHandler<A
                 addNextHistoryItem();
             }
         }));
-        List<String> args = getParameters().getRaw();
-
-        if(!args.isEmpty()){
-            int[] intArr = Arrays.stream(args.toArray()).map(Object::toString).mapToInt(Integer::parseInt).toArray();
-            arrayState = generateArr(intArr);
-        }else{
-            arrayState = generateRandomArr();
-        }
-
-        //initially displaying random array
-        updateDisplayedArray(arrayState.getArray(), tileArray);
-
-        //this bubble sort will make us every step that should be made later
-        bubbleSort(arrayState.getArray(), statesOfArray);
     }
 
     @Override
@@ -166,9 +166,8 @@ public class BubbleSortApplication extends Application implements EventHandler<A
 
     public synchronized void addNextHistoryItem() {
         int count = historyListView.getItems().size();
-        if(count >= statesOfArray.size()){
-            return;
-        }
+        if(count >= statesOfArray.size()) return;
+
         ArrayState next = statesOfArray.get(count);
         String text = next.getStatus().toString() + "("+ next.getSortedCount() + "/" + next.getArray().length + ")";
         historyListView.getItems().add(count, text);
